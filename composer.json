@@ -6,7 +6,10 @@
     "autoload": {
         "psr-4": {
             "RuangDeveloper\\LaravelAdminTemplate\\": "src/"
-        }
+        },
+        "files": [
+            "helpers/common.php"
+        ]
     },
     "authors": [
         {
