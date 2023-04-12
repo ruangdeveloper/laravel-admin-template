@@ -1,0 +1,22 @@
+{
+    "name": "ruangdeveloper/laravel-admin-template",
+    "description": "Laravel Admin Template",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "RuangDeveloper\\LaravelAdminTemplate\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ruang Developer",
+            "email": "mail@ruangdeveloper.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "illuminate/support": "^10.7",
+        "illuminate/console": "^10.7"
+    }
+}
