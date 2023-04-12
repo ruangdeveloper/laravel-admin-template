@@ -2,9 +2,9 @@
 
 namespace RuangDeveloper\LaravelAdminTemplate;
 
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
-class ServiceProvider extends BaseServiceProvider
+class LaravelAdminTemplateServiceProvider extends ServiceProvider
 {
     public function register()
     {

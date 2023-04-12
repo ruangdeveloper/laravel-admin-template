@@ -16,7 +16,7 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "illuminate/support": "^10.7",
-        "illuminate/console": "^10.7"
+        "illuminate/support": "^10.0",
+        "illuminate/console": "^10.0"
     }
 }
