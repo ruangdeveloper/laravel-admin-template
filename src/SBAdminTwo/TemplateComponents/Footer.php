@@ -3,7 +3,7 @@
 namespace RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents;
 
 use Closure;
-use RuangDeveloper\LaravelAdminTemplate\TemplateComponent;
+use RuangDeveloper\LaravelAdminTemplate\TemplateComponents\TemplateComponent;
 
 class Footer extends TemplateComponent
 {
@@ -21,7 +21,7 @@ class Footer extends TemplateComponent
         return new self;
     }
 
-    public function copyright(Closure|string $copyright)
+    public function setCopyright(Closure|string $copyright)
     {
         $this->copyright = $copyright;
 

@@ -3,7 +3,9 @@
 namespace RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents;
 
 use Closure;
-use RuangDeveloper\LaravelAdminTemplate\TemplateComponent;
+use Exception;
+use RuangDeveloper\LaravelAdminTemplate\TemplateComponents\TemplateComponent;
+use RuangDeveloper\LaravelAdminTemplate\Traits\HasBrand;
 
 class Sidebar extends TemplateComponent
 {
@@ -11,13 +13,16 @@ class Sidebar extends TemplateComponent
     const COLOR_BLUE = 'primary';
     const COLOR_RED = 'danger';
 
-    protected $color;
+    use HasBrand;
+
+    protected $color = self::COLOR_GRAY;
+    protected $sidebarItems = [];
 
     protected function __construct()
     {
         parent::__construct();
-
-        $this->color = self::COLOR_GRAY;
+        $this->setId();
+        $this->setBrandIcon('SB');
     }
 
     public static function make()
@@ -25,7 +30,7 @@ class Sidebar extends TemplateComponent
         return new self;
     }
 
-    public function color(Closure|string $color)
+    public function setColor(Closure|string $color)
     {
         $this->color = $color;
 
@@ -39,5 +44,21 @@ class Sidebar extends TemplateComponent
         if ($this->color instanceof Closure) {
             return call_user_func($this->color, $this->request);
         }
+    }
+
+    public function setSidebarItems(array $items = [])
+    {
+        if (!$this->isArrayOf(SidebarItem::class, $items)) {
+            throw new Exception('Sidebar items may only contains an instance of ' . SidebarItem::class);
+        }
+
+        $this->sidebarItems = $items;
+
+        return $this;
+    }
+
+    public function getSidebarItems()
+    {
+        return $this->sidebarItems;
     }
 }

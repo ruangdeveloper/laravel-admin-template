@@ -15,7 +15,7 @@
     @show
 </head>
 
-<body id="page-top">
+<body id="page-top" class="bg-light">
     <div id="wrapper">
         @include(config('lat.sb_admin_two.sidebar_template'))
         <div id="content-wrapper" class="d-flex flex-column">

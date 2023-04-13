@@ -1,89 +1,60 @@
 @php
     $sidebar = RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\SBAdminTwo::getSidebar();
-    $color = $sidebar->getColor();
 @endphp
-<ul class="navbar-nav bg-{{ $color }} sidebar sidebar-dark accordion" id="accordionSidebar">
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-    </a>
-    <hr class="sidebar-divider my-0">
-    <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
-    </li>
-    <hr class="sidebar-divider">
-    <div class="sidebar-heading">
-        Interface
-    </div>
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Components</span>
+@if ($sidebar)
+    <ul class="navbar-nav bg-{{ $sidebar->getColor() }} sidebar sidebar-dark accordion" id="{{ $sidebar->getId() }}">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ $sidebar->getBrandHref() }}"
+            target="{{ $sidebar->getBrandTarget() }}">
+            @if ($icon = $sidebar->getBrandIcon())
+                <div class="sidebar-brand-icon">
+                    {!! $icon !!}
+                </div>
+            @endif
+            <div class="sidebar-brand-text mx-3">{{ $sidebar->getBrandText() }}</div>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="buttons.html">Buttons</a>
-                <a class="collapse-item" href="cards.html">Cards</a>
-            </div>
+        @foreach ($sidebar->getSidebarItems() as $sidebarItem)
+            @if ($sidebarItem->typeIs('sidebar-item-divider'))
+                <hr id="{{ $sidebarItem->getId() }}" class="sidebar-divider my-0">
+            @endif
+            @if ($sidebarItem->typeIs('sidebar-item-link'))
+                <li id="{{ $sidebarItem->getId() }}" class="nav-item {{ $sidebarItem->isActive() ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ $sidebarItem->getHref() }}" target="{{ $sidebarItem->getTarget() }}">
+                        @if ($icon = $sidebarItem->getIcon())
+                            {!! $icon !!}
+                        @endif
+                        <span>{{ $sidebarItem->getText() }}</span>
+                    </a>
+                </li>
+            @endif
+            @if ($sidebarItem->typeIs('sidebar-item-heading'))
+                <div id="{{ $sidebarItem->getId() }}" class="sidebar-heading">{{ $sidebarItem->getText() }}</div>
+            @endif
+            @if ($sidebarItem->typeIs('sidebar-item-collapsible-link'))
+                <li id="{{ $sidebarItem->getId() }}" class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse"
+                        data-target="#{{ $sidebarItem->getId() }}__target" aria-expanded="true"
+                        aria-controls="{{ $sidebarItem->getId() }}__target">
+                        @if ($icon = $sidebarItem->getIcon())
+                            {!! $icon !!}
+                        @endif
+                        <span>{{ $sidebarItem->getText() }}</span>
+                    </a>
+                    <div id="{{ $sidebarItem->getId() }}__target" class="collapse"
+                        data-parent="#{{ $sidebar->getId() }}">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            @foreach ($sidebarItem->getLinkItems() as $linkItem)
+                                <a id="{{ $linkItem->getId() }}" class="collapse-item"
+                                    href="{{ $linkItem->getHref() }}"
+                                    target="{{ $linkItem->getTarget() }}">{{ $linkItem->getText() }}</a>
+                            @endforeach
+                        </div>
+                    </div>
+                </li>
+            @endif
+        @endforeach
+        <hr class="sidebar-divider d-none d-md-block">
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
         </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>Utilities</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                <a class="collapse-item" href="utilities-border.html">Borders</a>
-                <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
-            </div>
-        </div>
-    </li>
-    <hr class="sidebar-divider">
-    <div class="sidebar-heading">
-        Addons
-    </div>
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-            aria-expanded="true" aria-controls="collapsePages">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Login Screens:</h6>
-                <a class="collapse-item" href="login.html">Login</a>
-                <a class="collapse-item" href="register.html">Register</a>
-                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item" href="blank.html">Blank Page</a>
-            </div>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
-    </li>
-    <hr class="sidebar-divider d-none d-md-block">
-    <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
-</ul>
+    </ul>
+@endif

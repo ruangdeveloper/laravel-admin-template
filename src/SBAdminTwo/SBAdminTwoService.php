@@ -3,17 +3,47 @@
 namespace RuangDeveloper\LaravelAdminTemplate\SBAdminTwo;
 
 use RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents\Footer;
+use RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents\Navbar;
 use RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents\Sidebar;
 
 class SBAdminTwoService
 {
-    protected Sidebar $sidebar;
-    protected Footer $footer;
+    protected bool $loadBotstrapIcon = false;
+    protected bool $loadFontAwesomeIcon = false;
+    protected ?Navbar $navbar = null;
+    protected ?Sidebar $sidebar = null;
+    protected ?Footer $footer = null;
 
-    public function __construct()
+    public function loadBootstrapIcon($load = null)
     {
-        $this->sidebar = Sidebar::make();
-        $this->footer = Footer::make();
+        if (is_null($load)) {
+            return $this->loadBotstrapIcon;
+        }
+        $this->loadBotstrapIcon = $load;
+
+        return $this;
+    }
+
+    public function loadFontAwesomeIcon($load = null)
+    {
+        if (is_null($load)) {
+            return $this->loadFontAwesomeIcon;
+        }
+        $this->loadFontAwesomeIcon = $load;
+
+        return $this;
+    }
+
+    public function setNavbar(Navbar $navbar)
+    {
+        $this->navbar = $navbar;
+
+        return $this;
+    }
+
+    public function getNavbar()
+    {
+        return $this->navbar;
     }
 
     public function setSidebar(Sidebar $sidebar)
@@ -23,7 +53,7 @@ class SBAdminTwoService
         return $this;
     }
 
-    public function getSidebar(): Sidebar
+    public function getSidebar()
     {
         return $this->sidebar;
     }
@@ -35,7 +65,7 @@ class SBAdminTwoService
         return $this;
     }
 
-    public function getFooter(): Footer
+    public function getFooter()
     {
         return $this->footer;
     }
