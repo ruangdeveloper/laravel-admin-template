@@ -1,22 +1,23 @@
 <?php
 
-namespace RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents;
+namespace RuangDeveloper\LaravelAdminTemplate\AdminKit\TemplateComponents;
 
 use RuangDeveloper\LaravelAdminTemplate\TemplateComponents\TemplateComponent;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasHref;
-use RuangDeveloper\LaravelAdminTemplate\Traits\HasIcon;
+use RuangDeveloper\LaravelAdminTemplate\Traits\HasImage;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasTarget;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasText;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasTime;
+use RuangDeveloper\LaravelAdminTemplate\Traits\HasTitle;
 
-class NotificationItem extends TemplateComponent
+class NavbarMessageItem extends TemplateComponent
 {
-    use HasText, HasHref, HasIcon, HasTarget, HasTime;
+    use HasTitle, HasText, HasTime, HasHref, HasTarget, HasImage;
 
     protected function __construct()
     {
         parent::__construct();
-        $this->time = time();
+        $this->setTime(time());
     }
 
     public static function make()

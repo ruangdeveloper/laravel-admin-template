@@ -10,7 +10,6 @@ class SidebarItem extends TemplateComponent
     protected function __construct()
     {
         parent::__construct();
-        $this->setId();
     }
 
     public static function make()

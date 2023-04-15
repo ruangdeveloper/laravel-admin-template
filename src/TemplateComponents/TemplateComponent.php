@@ -14,6 +14,7 @@ class TemplateComponent
     protected function __construct()
     {
         $this->request = Container::getInstance()->make('request');
+        $this->setId();
     }
 
     protected function isArrayOf($type, array $array)
