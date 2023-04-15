@@ -12,8 +12,8 @@ class Navbar extends TemplateComponent
     use HasTitle, HasHref, HasTarget;
 
     protected ?NavbarUserInfo $navbarUserInfo = null;
-    protected ?NavbarNotificationCenter $navbarNotificationCenter = null;
-    protected ?NavbarMessageCenter $navbarMessageCenter = null;
+    protected ?NavbarNotification $navbarNotification = null;
+    protected ?NavbarMessage $navbarMessage = null;
 
     protected function __construct()
     {
@@ -38,27 +38,27 @@ class Navbar extends TemplateComponent
         return $this->navbarUserInfo;
     }
 
-    public function setNavbarNotificationCenter(?NavbarNotificationCenter $navbarNotificationCenter = null)
+    public function setNavbarNotification(?NavbarNotification $navbarNotification = null)
     {
-        $this->navbarNotificationCenter = $navbarNotificationCenter;
+        $this->navbarNotification = $navbarNotification;
 
         return $this;
     }
 
-    public function getNavbarNotificationCenter()
+    public function getNavbarNotification()
     {
-        return $this->navbarNotificationCenter;
+        return $this->navbarNotification;
     }
 
-    public function setNavbarMessageCenter(?NavbarMessageCenter $navbarMessageCenter = null)
+    public function setNavbarMessage(?NavbarMessage $navbarMessage = null)
     {
-        $this->navbarMessageCenter = $navbarMessageCenter;
+        $this->navbarMessage = $navbarMessage;
 
         return $this;
     }
 
-    public function getNavbarMessageCenter()
+    public function getNavbarMessage()
     {
-        return $this->navbarMessageCenter;
+        return $this->navbarMessage;
     }
 }

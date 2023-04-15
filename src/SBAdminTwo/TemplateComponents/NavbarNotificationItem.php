@@ -9,7 +9,7 @@ use RuangDeveloper\LaravelAdminTemplate\Traits\HasTarget;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasText;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasTime;
 
-class NotificationItem extends TemplateComponent
+class NavbarNotificationItem extends TemplateComponent
 {
     use HasText, HasHref, HasIcon, HasTarget, HasTime;
 

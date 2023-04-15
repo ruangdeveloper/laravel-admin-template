@@ -2,7 +2,6 @@
 
 namespace RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents;
 
-use Closure;
 use Exception;
 use RuangDeveloper\LaravelAdminTemplate\TemplateComponents\TemplateComponent;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasHref;
@@ -11,16 +10,16 @@ use RuangDeveloper\LaravelAdminTemplate\Traits\HasTarget;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasText;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasTitle;
 
-class NavbarNotificationCenter extends TemplateComponent
+class NavbarMessage extends TemplateComponent
 {
-    use HasText, HasIcon, HasHref, HasTarget, HasTitle;
+    use HasTitle, HasText, HasHref, HasTarget, HasIcon;
 
-    protected array $notificationItems = [];
+    protected array $navbarMessageItems = [];
 
     protected function __construct()
     {
         parent::__construct();
-        $this->setTitle('Notification Center');
+        $this->setTitle('Message Center');
     }
 
     protected function iconIsMandatory()
@@ -33,24 +32,24 @@ class NavbarNotificationCenter extends TemplateComponent
         return new self;
     }
 
-    public function setNotificationItems(array $notificationItems = [])
+    public function setNavbarMessageItems(array $navbarMessageItems = [])
     {
-        if (!$this->isArrayOf(NotificationItem::class, $notificationItems)) {
-            throw new Exception('Notification items may only contains an instance of ' . NotificationItem::class);
+        if (!$this->isArrayOf(NavbarMessageItem::class, $navbarMessageItems)) {
+            throw new Exception('Message items may only contains an instance of ' . NavbarMessageItem::class);
         }
 
-        $this->notificationItems = $notificationItems;
+        $this->navbarMessageItems = $navbarMessageItems;
 
         return $this;
     }
 
-    public function getNotificationItems()
+    public function getNavbarMessageItems()
     {
-        return $this->notificationItems;
+        return $this->navbarMessageItems;
     }
 
-    public function getNotificationCount()
+    public function getNavbarMessageCount()
     {
-        return sizeof($this->getNotificationItems());
+        return sizeof($this->getNavbarMessageItems());
     }
 }
