@@ -1,6 +1,6 @@
 <?php
 
-namespace RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents;
+namespace RuangDeveloper\LaravelAdminTemplate\Templates\SBAdminTwo\TemplateComponents;
 
 use Exception;
 use RuangDeveloper\LaravelAdminTemplate\TemplateComponents\TemplateComponent;

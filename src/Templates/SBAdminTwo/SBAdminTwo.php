@@ -1,11 +1,11 @@
 <?php
 
-namespace RuangDeveloper\LaravelAdminTemplate\SBAdminTwo;
+namespace RuangDeveloper\LaravelAdminTemplate\Templates\SBAdminTwo;
 
 use RuangDeveloper\LaravelAdminTemplate\LaravelAdminTemplateService;
-use RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents\Footer;
-use RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents\Navbar;
-use RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents\Sidebar;
+use RuangDeveloper\LaravelAdminTemplate\Templates\SBAdminTwo\TemplateComponents\Footer;
+use RuangDeveloper\LaravelAdminTemplate\Templates\SBAdminTwo\TemplateComponents\Navbar;
+use RuangDeveloper\LaravelAdminTemplate\Templates\SBAdminTwo\TemplateComponents\Sidebar;
 
 class SBAdminTwo
 {

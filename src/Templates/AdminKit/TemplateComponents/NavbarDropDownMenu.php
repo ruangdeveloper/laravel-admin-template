@@ -1,6 +1,6 @@
 <?php
 
-namespace RuangDeveloper\LaravelAdminTemplate\AdminKit\TemplateComponents;
+namespace RuangDeveloper\LaravelAdminTemplate\Templates\AdminKit\TemplateComponents;
 
 use Exception;
 use RuangDeveloper\LaravelAdminTemplate\Supports\Icon;

@@ -1,21 +1,15 @@
 <?php
 
-namespace RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents;
+namespace RuangDeveloper\LaravelAdminTemplate\Templates\SBAdminTwo\TemplateComponents;
 
 use RuangDeveloper\LaravelAdminTemplate\TemplateComponents\TemplateComponent;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasHref;
-use RuangDeveloper\LaravelAdminTemplate\Traits\HasIcon;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasTarget;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasText;
 
-class SidebarBrand extends TemplateComponent
+class CollapsibleLinkItem extends TemplateComponent
 {
-    use HasText, HasHref, HasTarget, HasIcon;
-    
-    protected function __construct()
-    {
-        parent::__construct();
-    }
+    use HasText, HasHref, HasTarget;
 
     public static function make()
     {

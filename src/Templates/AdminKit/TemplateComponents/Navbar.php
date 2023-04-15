@@ -1,6 +1,6 @@
 <?php
 
-namespace RuangDeveloper\LaravelAdminTemplate\AdminKit\TemplateComponents;
+namespace RuangDeveloper\LaravelAdminTemplate\Templates\AdminKit\TemplateComponents;
 
 use RuangDeveloper\LaravelAdminTemplate\TemplateComponents\TemplateComponent;
 

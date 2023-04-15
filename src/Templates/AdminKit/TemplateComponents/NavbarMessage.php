@@ -1,8 +1,9 @@
 <?php
 
-namespace RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents;
+namespace RuangDeveloper\LaravelAdminTemplate\Templates\AdminKit\TemplateComponents;
 
 use Exception;
+use RuangDeveloper\LaravelAdminTemplate\Supports\Icon;
 use RuangDeveloper\LaravelAdminTemplate\TemplateComponents\TemplateComponent;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasHref;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasIcon;
@@ -19,7 +20,7 @@ class NavbarMessage extends TemplateComponent
     protected function __construct()
     {
         parent::__construct();
-        $this->setTitle('Message Center');
+        $this->setIcon(Icon::feather('message-square'));
     }
 
     protected function iconIsMandatory()
@@ -32,13 +33,13 @@ class NavbarMessage extends TemplateComponent
         return new self;
     }
 
-    public function setNavbarMessageItems(array $navbarMessageItems = [])
+    public function setNavbarMessageItems(array $navbarMessageItem = [])
     {
-        if (!$this->isArrayOf(NavbarMessageItem::class, $navbarMessageItems)) {
-            throw new Exception('Message items may only contains an instance of ' . NavbarMessageItem::class);
+        if (!$this->isArrayOf(NavbarMessageItem::class, $navbarMessageItem)) {
+            throw new Exception('Navbar message items may only contains an instance of ' . NavbarMessageItem::class);
         }
 
-        $this->navbarMessageItems = $navbarMessageItems;
+        $this->navbarMessageItems = $navbarMessageItem;
 
         return $this;
     }
@@ -46,10 +47,5 @@ class NavbarMessage extends TemplateComponent
     public function getNavbarMessageItems()
     {
         return $this->navbarMessageItems;
-    }
-
-    public function getNavbarMessageCount()
-    {
-        return sizeof($this->getNavbarMessageItems());
     }
 }

@@ -1,17 +1,17 @@
 <?php
 
-namespace RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents;
+namespace RuangDeveloper\LaravelAdminTemplate\Templates\SBAdminTwo\TemplateComponents;
 
 use RuangDeveloper\LaravelAdminTemplate\TemplateComponents\TemplateComponent;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasHref;
+use RuangDeveloper\LaravelAdminTemplate\Traits\HasIcon;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasTarget;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasText;
-use RuangDeveloper\LaravelAdminTemplate\Traits\HasTitle;
 
-class NavbarMessageItem extends TemplateComponent
+class SidebarBrand extends TemplateComponent
 {
-    use HasText, HasHref, HasTarget, HasTitle;
-
+    use HasText, HasHref, HasTarget, HasIcon;
+    
     protected function __construct()
     {
         parent::__construct();

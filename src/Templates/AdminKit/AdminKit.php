@@ -1,9 +1,9 @@
 <?php
 
-namespace RuangDeveloper\LaravelAdminTemplate\AdminKit;
+namespace RuangDeveloper\LaravelAdminTemplate\Templates\AdminKit;
 
-use RuangDeveloper\LaravelAdminTemplate\AdminKit\TemplateComponents\Navbar;
 use RuangDeveloper\LaravelAdminTemplate\LaravelAdminTemplateService;
+use RuangDeveloper\LaravelAdminTemplate\Templates\AdminKit\TemplateComponents\Navbar;
 
 class AdminKit
 {

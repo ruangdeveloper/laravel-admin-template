@@ -1,6 +1,6 @@
 <?php
 
-namespace RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents;
+namespace RuangDeveloper\LaravelAdminTemplate\Templates\SBAdminTwo\TemplateComponents;
 
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasText;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasType;

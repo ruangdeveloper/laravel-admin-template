@@ -3,8 +3,8 @@
 namespace RuangDeveloper\LaravelAdminTemplate;
 
 use Closure;
-use RuangDeveloper\LaravelAdminTemplate\AdminKit\AdminKit;
-use RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\SBAdminTwo;
+use RuangDeveloper\LaravelAdminTemplate\Templates\AdminKit\AdminKit;
+use RuangDeveloper\LaravelAdminTemplate\Templates\SBAdminTwo\SBAdminTwo;
 
 class LaravelAdminTemplateService
 {
