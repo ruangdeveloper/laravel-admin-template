@@ -12,12 +12,12 @@
                 target="{{ $navbar->getTarget() }}">{{ $navbar->getTitle() }}</a>
         @endif
         <ul class="navbar-nav ml-auto">
-            @if ($notificationCenter = $navbar->getNavbarNotificationCenter())
-                <li id="{{ $notificationCenter->getId() }}" class="nav-item dropdown no-arrow mx-1">
+            @if ($notification = $navbar->getNavbarNotification())
+                <li id="{{ $notification->getId() }}" class="nav-item dropdown no-arrow mx-1">
                     <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {!! $notificationCenter->getIcon() !!}
-                        @if ($notificationCount = $notificationCenter->getNotificationCount())
+                        {!! $notification->getIcon() !!}
+                        @if ($notificationCount = $notification->getNavbarNotificationCount())
                             <span class="badge badge-danger badge-counter">{{ $notificationCount }}</span>
                         @endif
                     </a>
@@ -25,9 +25,9 @@
                     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="alertsDropdown">
                         <h6 class="dropdown-header">
-                            {{ $notificationCenter->getTitle() }}
+                            {{ $notification->getTitle() }}
                         </h6>
-                        @foreach ($notificationCenter->getNotificationItems() as $notificationItem)
+                        @foreach ($notification->getNavbarNotificationItems() as $notificationItem)
                             <a id="{{ $notificationItem->getId() }}" class="dropdown-item d-flex align-items-center"
                                 target="{{ $notificationItem->getTarget() }}" href="{{ $notificationItem->getHref() }}">
                                 @if ($icon = $notificationItem->getIcon())
@@ -42,19 +42,18 @@
                             </a>
                         @endforeach
                         <a class="dropdown-item text-center small text-gray-500"
-                            target="{{ $notificationCenter->getTarget() }}"
-                            href="{{ $notificationCenter->getHref() }}">
-                            {{ $notificationCenter->getText() }}
+                            target="{{ $notification->getTarget() }}" href="{{ $notification->getHref() }}">
+                            {{ $notification->getText() }}
                         </a>
                     </div>
                 </li>
             @endif
-            @if ($messageCenter = $navbar->getNavbarMessageCenter())
-                <li id="{{ $messageCenter->getId() }}" class="nav-item dropdown no-arrow mx-1">
+            @if ($navbarMessage = $navbar->getNavbarMessage())
+                <li id="{{ $navbarMessage->getId() }}" class="nav-item dropdown no-arrow mx-1">
                     <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {!! $messageCenter->getIcon() !!}
-                        @if ($messageCount = $messageCenter->getMessageCount())
+                        {!! $navbarMessage->getIcon() !!}
+                        @if ($messageCount = $navbarMessage->getNavbarMessageCount())
                             <span class="badge badge-danger badge-counter">{{ $messageCount }}</span>
                         @endif
                     </a>
@@ -62,19 +61,20 @@
                     <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="messagesDropdown">
                         <h6 class="dropdown-header">
-                            {{ $messageCenter->getTitle() }}
+                            {{ $navbarMessage->getTitle() }}
                         </h6>
-                        @foreach ($messageCenter->getMessageItems() as $messageItem)
-                            <a id="{{ $messageItem->getId() }}" class="dropdown-item d-flex align-items-center"
-                                href="{{ $messageItem->getHref() }}" target="{{ $messageItem->getTarget() }}">
+                        @foreach ($navbarMessage->getNavbarMessageItems() as $navbarMessageItem)
+                            <a id="{{ $navbarMessageItem->getId() }}" class="dropdown-item d-flex align-items-center"
+                                href="{{ $navbarMessageItem->getHref() }}"
+                                target="{{ $navbarMessageItem->getTarget() }}">
                                 <div>
-                                    <div class="text-truncate">{{ $messageItem->getText() }}</div>
-                                    <div class="small text-gray-500">{{ $messageItem->getSender() }}</div>
+                                    <div class="text-truncate">{{ $navbarMessageItem->getTitle() }}</div>
+                                    <div class="small text-gray-500">{{ $navbarMessageItem->getText() }}</div>
                                 </div>
                             </a>
                         @endforeach
-                        <a class="dropdown-item text-center small text-gray-500" href="{{ $messageCenter->getHref() }}"
-                            target="{{ $messageCenter->getTarget() }}">{{ $messageCenter->getText() }}</a>
+                        <a class="dropdown-item text-center small text-gray-500" href="{{ $navbarMessage->getHref() }}"
+                            target="{{ $navbarMessage->getTarget() }}">{{ $navbarMessage->getText() }}</a>
                     </div>
                 </li>
             @endif
