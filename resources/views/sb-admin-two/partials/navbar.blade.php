@@ -1,5 +1,5 @@
 @php
-    $navbar = RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\SBAdminTwo::getNavbar();
+    $navbar = RuangDeveloper\LaravelAdminTemplate\LaravelAdminTemplate::sbAdminTwo()->getNavbar();
 @endphp
 @if ($navbar)
     <nav id="{{ $navbar->getId() }}"
@@ -7,8 +7,9 @@
         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3 d-flex align-items-center">
             <span style="font-size: 25px;">&equiv;</span>
         </button>
-        @if ($navbar->getBrandText())
-            <a class="navbar-brand" href="#">{{ $navbar->getBrandText() }}</a>
+        @if ($navbar->getTitle())
+            <a class="navbar-brand" href="{{ $navbar->getHref() }}"
+                target="{{ $navbar->getTarget() }}">{{ $navbar->getTitle() }}</a>
         @endif
         <ul class="navbar-nav ml-auto">
             @if ($notificationCenter = $navbar->getNavbarNotificationCenter())

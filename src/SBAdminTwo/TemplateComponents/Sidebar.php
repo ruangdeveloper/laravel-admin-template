@@ -5,24 +5,22 @@ namespace RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents;
 use Closure;
 use Exception;
 use RuangDeveloper\LaravelAdminTemplate\TemplateComponents\TemplateComponent;
-use RuangDeveloper\LaravelAdminTemplate\Traits\HasBrand;
 
 class Sidebar extends TemplateComponent
 {
-    const COLOR_GRAY = 'dark';
-    const COLOR_BLUE = 'primary';
-    const COLOR_RED = 'danger';
-
-    use HasBrand;
+    const COLOR_GRAY = 'custom-grey';
+    const COLOR_BLUE = 'custom-blue';
+    const COLOR_RED = 'custom-red';
 
     protected $color = self::COLOR_GRAY;
     protected $sidebarItems = [];
+    protected $brand;
 
     protected function __construct()
     {
         parent::__construct();
         $this->setId();
-        $this->setBrandIcon('SB');
+        $this->brand = SidebarBrand::make()->setIcon('SB')->setText('ADMIN');
     }
 
     public static function make()
@@ -44,6 +42,18 @@ class Sidebar extends TemplateComponent
         if ($this->color instanceof Closure) {
             return call_user_func($this->color, $this->request);
         }
+    }
+
+    public function setBrand(SidebarBrand $brand)
+    {
+        $this->brand = $brand;
+
+        return $this;
+    }
+
+    public function getBrand()
+    {
+        return $this->brand;
     }
 
     public function setSidebarItems(array $items = [])

@@ -8,7 +8,7 @@ trait HasText
 {
     protected $text = 'Example Text';
 
-    public function setText(Closure|string $text)
+    public function setText(Closure|string $text = null)
     {
         $this->text = $text;
 

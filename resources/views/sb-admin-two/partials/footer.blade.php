@@ -1,5 +1,5 @@
  @php
-     $footer = RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\SBAdminTwo::getFooter();
+     $footer = RuangDeveloper\LaravelAdminTemplate\LaravelAdminTemplate::sbAdminTwo()->getFooter();
  @endphp
  @if ($footer)
      <footer id="{{ $footer->getId() }}" class="sticky-footer bg-white border-top">

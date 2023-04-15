@@ -1,24 +1,28 @@
 @php
-    $sidebar = RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\SBAdminTwo::getSidebar();
+    $sidebar = RuangDeveloper\LaravelAdminTemplate\LaravelAdminTemplate::sbAdminTwo()->getSidebar();
+    $brand = $sidebar->getBrand();
 @endphp
 @if ($sidebar)
     <ul class="navbar-nav bg-{{ $sidebar->getColor() }} sidebar sidebar-dark accordion" id="{{ $sidebar->getId() }}">
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ $sidebar->getBrandHref() }}"
-            target="{{ $sidebar->getBrandTarget() }}">
-            @if ($icon = $sidebar->getBrandIcon())
-                <div class="sidebar-brand-icon">
-                    {!! $icon !!}
-                </div>
-            @endif
-            <div class="sidebar-brand-text mx-3">{{ $sidebar->getBrandText() }}</div>
-        </a>
+        @if ($brand)
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ $brand->getHref() }}"
+                target="{{ $brand->getTarget() }}">
+                @if ($icon = $brand->getIcon())
+                    <div class="sidebar-brand-icon">
+                        {!! $icon !!}
+                    </div>
+                @endif
+                <div class="sidebar-brand-text mx-3">{{ $brand->getText() }}</div>
+            </a>
+            <hr class="sidebar-divider mt-0 mb-3">
+        @endif
         @foreach ($sidebar->getSidebarItems() as $sidebarItem)
             @if ($sidebarItem->typeIs('sidebar-item-divider'))
-                <hr id="{{ $sidebarItem->getId() }}" class="sidebar-divider my-0">
+                <hr id="{{ $sidebarItem->getId() }}" class="sidebar-divider mt-3 mb-3">
             @endif
             @if ($sidebarItem->typeIs('sidebar-item-link'))
                 <li id="{{ $sidebarItem->getId() }}" class="nav-item {{ $sidebarItem->isActive() ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ $sidebarItem->getHref() }}" target="{{ $sidebarItem->getTarget() }}">
+                    <a class="nav-link py-2" href="{{ $sidebarItem->getHref() }}" target="{{ $sidebarItem->getTarget() }}">
                         @if ($icon = $sidebarItem->getIcon())
                             {!! $icon !!}
                         @endif
@@ -27,7 +31,7 @@
                 </li>
             @endif
             @if ($sidebarItem->typeIs('sidebar-item-heading'))
-                <div id="{{ $sidebarItem->getId() }}" class="sidebar-heading">{{ $sidebarItem->getText() }}</div>
+                <div id="{{ $sidebarItem->getId() }}" class="sidebar-heading mt-3 mb-2">{{ $sidebarItem->getText() }}</div>
             @endif
             @if ($sidebarItem->typeIs('sidebar-item-collapsible-link'))
                 <li id="{{ $sidebarItem->getId() }}" class="nav-item">
@@ -52,7 +56,7 @@
                 </li>
             @endif
         @endforeach
-        <hr class="sidebar-divider d-none d-md-block">
+        <hr class="sidebar-divider mt-3 d-none d-md-block">
         <div class="text-center d-none d-md-inline">
             <button class="rounded-circle border-0" id="sidebarToggle"></button>
         </div>

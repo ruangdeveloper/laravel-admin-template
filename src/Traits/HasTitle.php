@@ -8,7 +8,7 @@ trait HasTitle
 {
     protected $title = 'Example Title';
 
-    public function setTitle(Closure|string $title)
+    public function setTitle(Closure|string $title = null)
     {
         $this->title = $title;
 

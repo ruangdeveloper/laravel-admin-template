@@ -3,11 +3,13 @@
 namespace RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents;
 
 use RuangDeveloper\LaravelAdminTemplate\TemplateComponents\TemplateComponent;
-use RuangDeveloper\LaravelAdminTemplate\Traits\HasBrand;
+use RuangDeveloper\LaravelAdminTemplate\Traits\HasHref;
+use RuangDeveloper\LaravelAdminTemplate\Traits\HasTarget;
+use RuangDeveloper\LaravelAdminTemplate\Traits\HasTitle;
 
 class Navbar extends TemplateComponent
 {
-    use HasBrand;
+    use HasTitle, HasHref, HasTarget;
 
     protected ?NavbarUserInfo $navbarUserInfo = null;
     protected ?NavbarNotificationCenter $navbarNotificationCenter = null;
@@ -17,7 +19,7 @@ class Navbar extends TemplateComponent
     {
         parent::__construct();
         $this->setId();
-        $this->setBrandText(null);
+    $this->setTitle('Navbar Title');
     }
 
     public static function make()
