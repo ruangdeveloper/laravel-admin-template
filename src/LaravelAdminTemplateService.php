@@ -3,34 +3,14 @@
 namespace RuangDeveloper\LaravelAdminTemplate;
 
 use Closure;
+use RuangDeveloper\LaravelAdminTemplate\AdminKit\AdminKit;
 use RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\SBAdminTwo;
 
 class LaravelAdminTemplateService
 {
-    protected bool $loadBotstrapIcon = false;
-    protected bool $loadFontAwesomeIcon = false;
     protected ?Closure $inMiddlewareFunction = null;
     protected ?SBAdminTwo $sbAdminTwo = null;
-
-    public function loadBootstrapIcon($load = null)
-    {
-        if (is_null($load)) {
-            return $this->loadBotstrapIcon;
-        }
-        $this->loadBotstrapIcon = $load;
-
-        return $this;
-    }
-
-    public function loadFontAwesomeIcon($load = null)
-    {
-        if (is_null($load)) {
-            return $this->loadFontAwesomeIcon;
-        }
-        $this->loadFontAwesomeIcon = $load;
-
-        return $this;
-    }
+    protected ?AdminKit $adminKit = null;
 
     public function inMiddleware(?Closure $inMiddlewareFunction = null)
     {
@@ -49,5 +29,14 @@ class LaravelAdminTemplateService
         }
 
         return $this->sbAdminTwo;
+    }
+
+    public function adminKit()
+    {
+        if (is_null($this->adminKit)) {
+            $this->adminKit = new AdminKit($this);
+        }
+
+        return $this->adminKit;
     }
 }

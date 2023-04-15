@@ -1,8 +1,8 @@
 <?php
 
-namespace RuangDeveloper\LaravelAdminTemplate\TemplateComponents;
+namespace RuangDeveloper\LaravelAdminTemplate\Supports;
 
-class Icon extends TemplateComponent
+class Icon
 {
     public static function fontAwesome($name, $type = 'fa', $fixWidth = true, string $classes =  '')
     {
@@ -16,5 +16,10 @@ class Icon extends TemplateComponent
     public static function bootstrap($name, string $classes = '')
     {
         return '<i class="' . $name . ' ' . $classes . '"></i>';
+    }
+
+    public static function feather(string $name, string $classes = 'align-middle')
+    {
+        return '<i data-feather="' . $name . '" class="' . $classes . '"></i>';
     }
 }

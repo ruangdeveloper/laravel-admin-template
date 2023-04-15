@@ -1,26 +1,35 @@
 <?php
 
-namespace RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents;
+namespace RuangDeveloper\LaravelAdminTemplate\AdminKit\TemplateComponents;
 
 use RuangDeveloper\LaravelAdminTemplate\TemplateComponents\TemplateComponent;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasHref;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasIcon;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasTarget;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasText;
-use RuangDeveloper\LaravelAdminTemplate\Traits\HasTime;
+use RuangDeveloper\LaravelAdminTemplate\Traits\HasType;
 
-class NotificationItem extends TemplateComponent
+class NavbarDropDownMenuItem extends TemplateComponent
 {
-    use HasText, HasHref, HasIcon, HasTarget, HasTime;
+    use HasType, HasHref, HasText, HasIcon, HasTarget;
 
     protected function __construct()
     {
         parent::__construct();
-        $this->time = time();
     }
 
     public static function make()
     {
         return new self;
+    }
+
+    public static function makeLink()
+    {
+        return self::make()->setType('link');
+    }
+
+    public static function makeDivider()
+    {
+        return self::make()->setType('divider');
     }
 }

@@ -18,9 +18,14 @@ class LaravelAdminTemplateServiceProvider extends ServiceProvider
     public function boot(HttpKernel $kernel)
     {
         if ($this->app->runningInConsole()) {
+
             $this->publishes([
                 __DIR__ . '/../assets/sb-admin-two' => $this->app->basePath('public/vendor/ruangdeveloper/laravel-admin-template/sb-admin-two')
             ], 'lat:assets:sb-admin-two');
+
+            $this->publishes([
+                __DIR__ . '/../assets/admin-kit' => $this->app->basePath('public/vendor/ruangdeveloper/laravel-admin-template/admin-kit')
+            ], 'lat:assets:admin-kit');
         }
 
         /** @var Illuminate\Http\Kernel */

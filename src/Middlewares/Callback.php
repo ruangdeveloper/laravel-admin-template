@@ -13,7 +13,9 @@ class Callback
     {
         $inMiddlewareFunction = LaravelAdminTemplate::getInMiddlewareFunction();
 
-        $inMiddlewareFunction($request);
+        if ($inMiddlewareFunction) {
+            $inMiddlewareFunction($request);
+        }
 
         return $next($request);
     }

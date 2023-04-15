@@ -19,7 +19,6 @@ class Sidebar extends TemplateComponent
     protected function __construct()
     {
         parent::__construct();
-        $this->setId();
         $this->brand = SidebarBrand::make()->setIcon('SB')->setText('ADMIN');
     }
 

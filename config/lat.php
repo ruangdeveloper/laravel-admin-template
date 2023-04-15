@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'icons_template' => 'lat::icons',
     'sb_admin_two' => [
         'navbar_template' => 'lat::sb-admin-two.partials.navbar',
         'sidebar_template' => 'lat::sb-admin-two.partials.sidebar',
@@ -12,4 +13,15 @@ return [
         'head_section_name' => 'head',
         'foot_section_name' => 'foot',
     ],
+    'admin_kit' => [
+        'head_template' => 'lat::admin-kit.partials.head',
+        'foot_template' => 'lat::admin-kit.partials.foot',
+        'footer_template' => 'lat::admin-kit.partials.footer',
+        'navbar_template' => 'lat::admin-kit.partials.navbar',
+        'sidebar_template' => 'lat::admin-kit.partials.sidebar',
+        'content_section_name' => 'content',
+        'title_section_name' => 'title',
+        'head_section_name' => 'head',
+        'foot_section_name' => 'foot',
+    ]
 ];

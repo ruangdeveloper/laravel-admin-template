@@ -18,8 +18,7 @@ class Navbar extends TemplateComponent
     protected function __construct()
     {
         parent::__construct();
-        $this->setId();
-    $this->setTitle('Navbar Title');
+        $this->setTitle('Navbar Title');
     }
 
     public static function make()
