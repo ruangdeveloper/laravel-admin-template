@@ -13,7 +13,7 @@
         <div class="navbar-collapse collapse">
             <ul class="navbar-nav navbar-align">
                 @if ($navbarNotification)
-                    <li class="nav-item dropdown">
+                    <li id="{{ $navbarNotification->getId() }}" class="nav-item dropdown">
                         <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
                             <div class="position-relative">
                                 {!! $navbarNotification->getIcon() !!}
@@ -55,7 +55,7 @@
                     </li>
                 @endif
                 @if ($navbarMessage)
-                    <li class="nav-item dropdown">
+                    <li id="{{ $navbarMessage->getId() }}" class="nav-item dropdown">
                         <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown"
                             data-bs-toggle="dropdown">
                             <div class="position-relative">
