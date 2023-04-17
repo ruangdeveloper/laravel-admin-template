@@ -5,18 +5,21 @@ namespace RuangDeveloper\LaravelAdminTemplate\Templates\SBAdmin;
 use RuangDeveloper\LaravelAdminTemplate\LaravelAdminTemplateService;
 use RuangDeveloper\LaravelAdminTemplate\Templates\SBAdmin\TemplateComponents\Footer;
 use RuangDeveloper\LaravelAdminTemplate\Templates\SBAdmin\TemplateComponents\Navbar;
+use RuangDeveloper\LaravelAdminTemplate\Templates\SBAdmin\TemplateComponents\Sidebar;
 
 class SBAdmin
 {
     protected LaravelAdminTemplateService $laravelAdminTemplateService;
     protected ?Navbar $navbar = null;
+    protected ?Sidebar $sidebar = null;
     protected ?Footer $footer = null;
 
     public function __construct(LaravelAdminTemplateService $laravelAdminTemplateService)
     {
         $this->laravelAdminTemplateService = $laravelAdminTemplateService;
-        $this->setFooter(Footer::make());
         $this->setNavbar(Navbar::make());
+        $this->setSidebar(Sidebar::make());
+        $this->setFooter(Footer::make());
     }
 
     public function setNavbar(?Navbar $navbar)
@@ -29,6 +32,18 @@ class SBAdmin
     public function getNavbar()
     {
         return $this->navbar;
+    }
+
+    public function setSidebar(?Sidebar $sidebar = null)
+    {
+        $this->sidebar = $sidebar;
+
+        return $this;
+    }
+
+    public function getSidebar()
+    {
+        return $this->sidebar;
     }
 
     public function setFooter(?Footer $footer)

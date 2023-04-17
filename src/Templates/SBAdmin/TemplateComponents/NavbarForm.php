@@ -13,6 +13,7 @@ class NavbarForm extends TemplateComponent
     protected $inputType = 'text';
     protected $inputPlaceholder = '';
     protected $inputName = 'navbar_form_input';
+    protected $inputValue = '';
     protected $method = 'GET';
     protected $action = '';
 
@@ -76,6 +77,22 @@ class NavbarForm extends TemplateComponent
 
         if ($this->inputName instanceof Closure) {
             return call_user_func($this->inputName, $this->request);
+        }
+    }
+
+    public function setInputValue(Closure|string $inputValue)
+    {
+        $this->inputValue = $inputValue;
+
+        return $this;
+    }
+
+    public function getInputValue()
+    {
+        if (is_string($this->inputValue)) return $this->inputValue;
+
+        if ($this->inputValue instanceof Closure) {
+            return call_user_func($this->inputValue, $this->request);
         }
     }
 

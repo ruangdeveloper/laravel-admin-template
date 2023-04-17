@@ -27,6 +27,7 @@ return [
     'sb_admin' => [
         'navbar_template' => 'lat::sb-admin.partials.navbar',
         'sidebar_template' => 'lat::sb-admin.partials.sidebar',
+        'sidebar_menu_item_template' => 'lat::sb-admin.partials.sidebar-menu-item',
         'footer_template' => 'lat::sb-admin.partials.footer',
         'head_template' => 'lat::sb-admin.partials.head',
         'foot_template' => 'lat::sb-admin.partials.foot',

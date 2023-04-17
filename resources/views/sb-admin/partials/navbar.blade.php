@@ -4,15 +4,19 @@
         $navbarForm = $navbar->getNavbarForm();
         $navbarDropDownMenu = $navbar->getNavbarDropDownMenu();
     }
+    $sidebar = RuangDeveloper\LaravelAdminTemplate\LaravelAdminTemplate::sbAdmin()->getSidebar();
 @endphp
 @if ($navbar)
     <nav id="{{ $navbar->getId() }}" class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="{{ $navbar->getHref() }}"
             target="{{ $navbar->getTarget() }}">{{ $navbar->getTitle() }}</a>
-        <!-- Sidebar Toggle-->
-        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
-                class="fas fa-bars"></i></button>
+        @if ($sidebar)
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
+                {!! $sidebar->getIcon() !!}
+            </button>
+        @endif
         <!-- Navbar Search-->
         @if ($navbarForm)
             <form id="{{ $navbarForm->getId() }}" action="{{ $navbarForm->getAction() }}"
@@ -31,7 +35,8 @@
                     <input class="form-control" type="{{ $navbarForm->getInputType() }}"
                         placeholder="{{ $navbarForm->getInputPlaceholder() }}"
                         aria-label="{{ $navbarForm->getInputPlaceholder() }}"
-                        aria-describedby="{{ $navbarForm->getId() }}__button" />
+                        aria-describedby="{{ $navbarForm->getId() }}__button" name="{{ $navbarForm->getInputName() }}"
+                        value="{{ $navbarForm->getInputValue() }}" />
                     <button class="btn btn-primary" id="{{ $navbarForm->getId() }}__button" type="submit">
                         {!! $navbarForm->getIcon() !!}
                 </div>
