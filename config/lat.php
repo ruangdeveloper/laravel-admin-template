@@ -23,5 +23,17 @@ return [
         'title_section_name' => 'title',
         'head_section_name' => 'head',
         'foot_section_name' => 'foot',
+    ],
+    'sb_admin' => [
+        'navbar_template' => 'lat::sb-admin.partials.navbar',
+        'sidebar_template' => 'lat::sb-admin.partials.sidebar',
+        'sidebar_menu_item_template' => 'lat::sb-admin.partials.sidebar-menu-item',
+        'footer_template' => 'lat::sb-admin.partials.footer',
+        'head_template' => 'lat::sb-admin.partials.head',
+        'foot_template' => 'lat::sb-admin.partials.foot',
+        'content_section_name' => 'content',
+        'title_section_name' => 'title',
+        'head_section_name' => 'head',
+        'foot_section_name' => 'foot',
     ]
 ];

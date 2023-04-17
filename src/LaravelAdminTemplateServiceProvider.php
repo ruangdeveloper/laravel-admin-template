@@ -26,6 +26,10 @@ class LaravelAdminTemplateServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/../assets/admin-kit' => $this->app->basePath('public/vendor/ruangdeveloper/laravel-admin-template/admin-kit')
             ], 'lat:assets:admin-kit');
+
+            $this->publishes([
+                __DIR__ . '/../assets/sb-admin' => $this->app->basePath('public/vendor/ruangdeveloper/laravel-admin-template/sb-admin')
+            ], 'lat:assets:sb-admin');
         }
 
         /** @var Illuminate\Http\Kernel */
