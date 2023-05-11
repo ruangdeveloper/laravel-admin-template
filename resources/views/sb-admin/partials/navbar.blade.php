@@ -52,14 +52,17 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         @foreach ($navbarDropDownMenu->getNavbarDropDownMenuItems() as $item)
-                            @if ($item->typeIs('link'))
-                                <li id="{{ $item->getId() }}"><a class="dropdown-item" href="{{ $item->getHref() }}"
-                                        target="{{ $item->getTarget() }}">{{ $item->getText() }}</a></li>
-                            @endif
-                            @if ($item->typeIs('divider'))
-                                <li id="{{ $item->getId() }}">
-                                    <hr class="dropdown-divider" />
-                                </li>
+                            @if ($item->isVisible())
+                                @if ($item->typeIs('link'))
+                                    <li id="{{ $item->getId() }}"><a class="dropdown-item"
+                                            href="{{ $item->getHref() }}"
+                                            target="{{ $item->getTarget() }}">{{ $item->getText() }}</a></li>
+                                @endif
+                                @if ($item->typeIs('divider'))
+                                    <li id="{{ $item->getId() }}">
+                                        <hr class="dropdown-divider" />
+                                    </li>
+                                @endif
                             @endif
                         @endforeach
                     </ul>

@@ -12,9 +12,11 @@
                 @if ($footerMenu)
                     <div id="{{ $footerMenu->getId() }}">
                         @foreach ($footerMenu->getFooterMenuItems() as $item)
-                            <a id="{{ $item->getId() }}" href="{{ $item->getHref() }}"
-                                target="{{ $item->getTarget() }}">{{ $item->getText() }}</a>
-                            &middot;
+                            @if ($item->isVisible())
+                                <a id="{{ $item->getId() }}" href="{{ $item->getHref() }}"
+                                    target="{{ $item->getTarget() }}">{{ $item->getText() }}</a>
+                                &middot;
+                            @endif
                         @endforeach
                     </div>
                 @endif

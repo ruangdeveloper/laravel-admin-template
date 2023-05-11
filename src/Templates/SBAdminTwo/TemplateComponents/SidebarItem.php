@@ -3,10 +3,12 @@
 namespace RuangDeveloper\LaravelAdminTemplate\Templates\SBAdminTwo\TemplateComponents;
 
 use RuangDeveloper\LaravelAdminTemplate\TemplateComponents\TemplateComponent;
-use RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents\SidebarItemLink;
+use RuangDeveloper\LaravelAdminTemplate\Traits\HasVisible;
 
 class SidebarItem extends TemplateComponent
 {
+    use HasVisible;
+    
     protected function __construct()
     {
         parent::__construct();
@@ -14,7 +16,7 @@ class SidebarItem extends TemplateComponent
 
     public static function make()
     {
-        return SidebarItemLink::make();
+        return SidebarItem::make();
     }
 
     public static function makeLink()

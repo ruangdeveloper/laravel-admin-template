@@ -10,10 +10,11 @@ use RuangDeveloper\LaravelAdminTemplate\Traits\HasIcon;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasTarget;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasText;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasType;
+use RuangDeveloper\LaravelAdminTemplate\Traits\HasVisible;
 
 class SidebarMenuItem extends TemplateComponent
 {
-    use HasType, HasText, HasIcon, HasHref, HasTarget, HasActive;
+    use HasType, HasText, HasIcon, HasHref, HasTarget, HasActive, HasVisible;
 
     protected array $child = [];
 

@@ -7,10 +7,11 @@ use RuangDeveloper\LaravelAdminTemplate\Traits\HasHref;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasTarget;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasText;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasType;
+use RuangDeveloper\LaravelAdminTemplate\Traits\HasVisible;
 
 class NavbarDropDownMenuItem extends TemplateComponent
 {
-    use HasType, HasText, HasHref, HasTarget;
+    use HasType, HasText, HasHref, HasTarget, HasVisible;
 
     protected function __construct()
     {

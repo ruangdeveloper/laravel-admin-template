@@ -114,17 +114,19 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
                             @foreach ($dropDownMenu->getDropDownMenuItems() as $item)
-                                @if ($item->typeIs('link'))
-                                    <a id="{{ $item->getId() }}" class="dropdown-item"
-                                        target="{{ $item->getTarget() }}" href="{{ $item->getHref() }}">
-                                        @if ($icon = $item->getIcon())
-                                            <span class="me-2">{!! $icon !!}</span>
-                                        @endif
-                                        {{ $item->getText() }}
-                                    </a>
-                                @endif
-                                @if ($item->typeIs('divider'))
-                                    <div id="{{ $item->getId() }}" class="dropdown-divider"></div>
+                                @if ($item->isVisible())
+                                    @if ($item->typeIs('link'))
+                                        <a id="{{ $item->getId() }}" class="dropdown-item"
+                                            target="{{ $item->getTarget() }}" href="{{ $item->getHref() }}">
+                                            @if ($icon = $item->getIcon())
+                                                <span class="me-2">{!! $icon !!}</span>
+                                            @endif
+                                            {{ $item->getText() }}
+                                        </a>
+                                    @endif
+                                    @if ($item->typeIs('divider'))
+                                        <div id="{{ $item->getId() }}" class="dropdown-divider"></div>
+                                    @endif
                                 @endif
                             @endforeach
                         </div>

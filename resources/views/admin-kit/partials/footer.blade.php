@@ -15,10 +15,12 @@
                      <div id="{{ $footerMenu->getId() }}" class="col-6 text-end">
                          <ul class="list-inline">
                              @foreach ($footerMenu->getFooterMenuItems() as $item)
-                                 <li id="{{ $item->getId() }}" class="list-inline-item">
-                                     <a class="text-muted" href="{{ $item->getHref() }}"
-                                         target="{{ $item->getTarget() }}">{{ $item->getText() }}</a>
-                                 </li>
+                                 @if ($item->isVisible())
+                                     <li id="{{ $item->getId() }}" class="list-inline-item">
+                                         <a class="text-muted" href="{{ $item->getHref() }}"
+                                             target="{{ $item->getTarget() }}">{{ $item->getText() }}</a>
+                                     </li>
+                                 @endif
                              @endforeach
                          </ul>
                      </div>

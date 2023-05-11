@@ -2,7 +2,6 @@
 
 namespace RuangDeveloper\LaravelAdminTemplate\Templates\SBAdminTwo\TemplateComponents;
 
-use RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents\SidebarItem;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasActive;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasHref;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasIcon;

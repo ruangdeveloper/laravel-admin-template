@@ -9,20 +9,22 @@
             </a>
             <ul class="sidebar-nav">
                 @foreach ($sidebar->getSidebarItems() as $item)
-                    @if ($item->typeIs('heading'))
-                        <li id="{{ $item->getId() }}" class="sidebar-header">
-                            {{ $item->getText() }}
-                        </li>
-                    @endif
-                    @if ($item->typeIs('link'))
-                        <li id="{{ $item->getId() }}" class="sidebar-item">
-                            <a class="sidebar-link" target="{{ $item->getTarget() }}" href="{{ $item->getHref() }}">
-                                @if ($icon = $item->getIcon())
-                                    {!! $icon !!}
-                                @endif
-                                <span class="align-middle">{{ $item->getText() }}</span>
-                            </a>
-                        </li>
+                    @if ($item->isVisible())
+                        @if ($item->typeIs('heading'))
+                            <li id="{{ $item->getId() }}" class="sidebar-header">
+                                {{ $item->getText() }}
+                            </li>
+                        @endif
+                        @if ($item->typeIs('link'))
+                            <li id="{{ $item->getId() }}" class="sidebar-item">
+                                <a class="sidebar-link" target="{{ $item->getTarget() }}" href="{{ $item->getHref() }}">
+                                    @if ($icon = $item->getIcon())
+                                        {!! $icon !!}
+                                    @endif
+                                    <span class="align-middle">{{ $item->getText() }}</span>
+                                </a>
+                            </li>
+                        @endif
                     @endif
                 @endforeach
             </ul>

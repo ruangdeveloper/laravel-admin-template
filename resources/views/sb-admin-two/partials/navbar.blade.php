@@ -94,19 +94,22 @@
                     <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                         aria-labelledby="userDropdown">
                         @foreach ($navbarUserInfo->getDropDownItems() as $dropDownItem)
-                            @if ($dropDownItem->typeIs('link'))
-                                <a id="{{ $dropDownItem->getId() }}" class="dropdown-item"
-                                    target="{{ $dropDownItem->getTarget() }}" href="{{ $dropDownItem->getHref() }}">
-                                    @if ($icon = $dropDownItem->getIcon())
-                                        <span class="mr-2 text-gray-400">
-                                            {!! $icon !!}
-                                        </span>
-                                    @endif
-                                    {{ $dropDownItem->getText() }}
-                                </a>
-                            @endif
-                            @if ($dropDownItem->typeIs('divider'))
-                                <div id="{{ $dropDownItem->getId() }}" class="dropdown-divider"></div>
+                            @if ($dropDownItem->isVisible())
+                                @if ($dropDownItem->typeIs('link'))
+                                    <a id="{{ $dropDownItem->getId() }}" class="dropdown-item"
+                                        target="{{ $dropDownItem->getTarget() }}"
+                                        href="{{ $dropDownItem->getHref() }}">
+                                        @if ($icon = $dropDownItem->getIcon())
+                                            <span class="mr-2 text-gray-400">
+                                                {!! $icon !!}
+                                            </span>
+                                        @endif
+                                        {{ $dropDownItem->getText() }}
+                                    </a>
+                                @endif
+                                @if ($dropDownItem->typeIs('divider'))
+                                    <div id="{{ $dropDownItem->getId() }}" class="dropdown-divider"></div>
+                                @endif
                             @endif
                         @endforeach
                     </div>

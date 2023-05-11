@@ -3,8 +3,6 @@
 namespace RuangDeveloper\LaravelAdminTemplate\Templates\SBAdminTwo\TemplateComponents;
 
 use Exception;
-use RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents\SidebarItem;
-use RuangDeveloper\LaravelAdminTemplate\SBAdminTwo\TemplateComponents\CollapsibleLinkItem;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasActive;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasIcon;
 use RuangDeveloper\LaravelAdminTemplate\Traits\HasText;
