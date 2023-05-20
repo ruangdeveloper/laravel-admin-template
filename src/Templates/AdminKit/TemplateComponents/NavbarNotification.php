@@ -2,6 +2,7 @@
 
 namespace RuangDeveloper\LaravelAdminTemplate\Templates\AdminKit\TemplateComponents;
 
+use Closure;
 use Exception;
 use RuangDeveloper\LaravelAdminTemplate\Supports\Icon;
 use RuangDeveloper\LaravelAdminTemplate\TemplateComponents\TemplateComponent;
@@ -15,7 +16,7 @@ class NavbarNotification extends TemplateComponent
 {
     use HasIcon, HasTitle, HasText, HasHref, HasTarget;
 
-    protected array $navbarNotificationItems = [];
+    protected Closure|array $navbarNotificationItems = [];
 
     protected function __construct()
     {
@@ -33,10 +34,12 @@ class NavbarNotification extends TemplateComponent
         return new self;
     }
 
-    public function setNavbarNotificationItems(array $navbarNotificationItems = [])
+    public function setNavbarNotificationItems(Closure|array $navbarNotificationItems = [])
     {
-        if (!$this->isArrayOf(NavbarNotificationItem::class, $navbarNotificationItems)) {
-            throw new Exception('Navbar notification items may only contains an instance of ' . NavbarNotificationItem::class);
+        if (is_array($navbarNotificationItems)) {
+            if (!$this->isArrayOf(NavbarNotificationItem::class, $navbarNotificationItems)) {
+                throw new Exception('Navbar notification items may only contains an instance of ' . NavbarNotificationItem::class);
+            }
         }
 
         $this->navbarNotificationItems = $navbarNotificationItems;
@@ -46,7 +49,13 @@ class NavbarNotification extends TemplateComponent
 
     public function getNavbarNotificationItems()
     {
-        return $this->navbarNotificationItems;
+        if (is_array($this->navbarNotificationItems)) {
+            return $this->navbarNotificationItems;
+        }
+
+        if ($this->navbarNotificationItems instanceof Closure) {
+            return call_user_func($this->navbarNotificationItems, $this->request);
+        }
     }
 
     public function getNavbarNotificationCount()
