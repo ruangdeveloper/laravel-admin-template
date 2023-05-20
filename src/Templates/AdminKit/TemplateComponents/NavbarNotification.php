@@ -60,6 +60,6 @@ class NavbarNotification extends TemplateComponent
 
     public function getNavbarNotificationCount()
     {
-        return sizeof($this->navbarNotificationItems);
+        return sizeof($this->getNavbarNotificationItems());
     }
 }
